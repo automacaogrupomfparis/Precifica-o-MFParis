@@ -21,7 +21,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
 
-/* LOGIN */
 #login{background:var(--card);border-radius:var(--r);box-shadow:var(--sombra);padding:44px 40px 40px;width:100%;max-width:400px;text-align:center}
 .marca{margin-bottom:28px}
 .marca-nome{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:var(--azul);letter-spacing:.08em}
@@ -34,21 +33,18 @@ body{font-family:'Inter',sans-serif;background:var(--bg);min-height:100vh;displa
 #login button:hover{background:var(--azul2)}
 #erroLogin{color:var(--vermelho);font-size:.85rem;margin-top:10px;display:none}
 
-/* APP */
 #app{display:none;width:100%;max-width:520px}
 .card{background:var(--card);border-radius:var(--r);box-shadow:var(--sombra);padding:36px 32px 32px}
 .topo{text-align:center;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--borda)}
 .topo .marca-nome{font-size:1.3rem}
 .topo .divisor{margin-top:10px}
 
-/* FORM */
 .campo{margin-bottom:18px}
 .campo label,.linha-dupla label{display:block;font-size:.73rem;font-weight:700;color:var(--mudo);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
 .linha-dupla{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
 select{width:100%;padding:12px 38px 12px 14px;border:2px solid var(--borda);border-radius:10px;font-size:.95rem;font-family:'Inter',sans-serif;color:var(--texto);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7a99' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 12px center;-webkit-appearance:none;appearance:none;outline:none;cursor:pointer;transition:border-color .2s}
 select:focus{border-color:var(--azul2)}
 
-/* RESULTADO */
 #resultado{margin-top:22px;display:none}
 .grade{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .caixa{border:2.5px solid var(--azul);border-radius:14px;padding:22px 16px;text-align:center;background:#f6f8ff}
@@ -72,7 +68,6 @@ select:focus{border-color:var(--azul2)}
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="login">
   <div class="marca">
     <div class="marca-nome">GRUPO MF PARIS</div>
@@ -85,7 +80,6 @@ select:focus{border-color:var(--azul2)}
   <p id="erroLogin">Senha incorreta. Tente novamente.</p>
 </div>
 
-<!-- APP -->
 <div id="app">
   <div class="card">
     <div class="topo">
@@ -138,13 +132,10 @@ select:focus{border-color:var(--azul2)}
 <script>
 const SENHA = 'gmf2026';
 
-// Parametros base por produto: custo, comissoes e margens
-const PRODUTOS = {"ACHOCOLATADO CHOCOMINAS CESTA 200G":{"custo":7.1692,"comA":0.03,"comB":0.02,"margA":0.175,"margB":0.125},"CAFE VACUO BELVEDER 250G L2002":{"custo":12.2792,"comA":0.03,"comB":0.02,"margA":0.325,"margB":0.275},"CAFE VACUO VILLA RICA TRADICIONAL 500G":{"custo":26.2792,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"CD - GLUCOSE EM PO - 25KG":{"custo":5.29,"comA":0.03,"comB":0.02,"margA":0.33,"margB":0.28},"CD - LEITE EM PO DESNATADO IMPORTADO 25KG":{"custo":19.96,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"CD - LEITE EM PO INTEGRAL IMPORTADO 25KG":{"custo":22.59,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"CD - MANIMALTO - MALTODEXTRINA 25KG":{"custo":5.29,"comA":0.03,"comB":0.02,"margA":0.265,"margB":0.215},"CD - PERMEADO LITORAL 25KG":{"custo":5.19,"comA":0.02,"comB":0.01,"margA":0.155,"margB":0.105},"CD - SORO DE LEITE EM PO 25KG":{"custo":8.19,"comA":0.02,"comB":0.01,"margA":0.125,"margB":0.075},"COMPOSTO LACTEO HORIZONTE COM MALTODEXTRINA 200G":{"custo":12.9892,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"LEITE EM PO DESNATADO HORIZONTE 25KG":{"custo":20.6702,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"LEITE EM PO INTEGRAL HORIZONTE 200g":{"custo":25.8592,"comA":0.015,"comB":0.01,"margA":0.085,"margB":0.055},"LEITE EM PO INTEGRAL HORIZONTE 25KG":{"custo":23.3002,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"OKEY LAC ACAI 1 KG":{"custo":14.9992,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"OKEY LAC CREAM 25KG":{"custo":16.5402,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"OKEY LAC GOURMET 25KG":{"custo":11.8202,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"OKEY LAC PANIFICACAO 1KG":{"custo":12.8892,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"OKEY LAC PRO 25KG":{"custo":12.9002,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"PERMEADO LITORAL 25KG":{"custo":5.9002,"comA":0.02,"comB":0.01,"margA":0.155,"margB":0.105},"SORO DE LEITE EM PO HORIZONTE 25KG":{"custo":8.9002,"comA":0.02,"comB":0.01,"margA":0.125,"margB":0.075}};
+const PRODUTOS = {"ACHOCOLATADO CHOCOMINAS CESTA 200G":{"custo":7.169158338,"comA":0.03,"comB":0.02,"margA":0.175,"margB":0.125},"CAFE VACUO BELVEDER 250G L2002":{"custo":12.279158338,"comA":0.03,"comB":0.02,"margA":0.325,"margB":0.275},"CAFE VACUO VILLA RICA TRADICIONAL 500G":{"custo":26.279158338,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"CD - GLUCOSE EM PO - 25KG":{"custo":5.29,"comA":0.03,"comB":0.02,"margA":0.33,"margB":0.28},"CD - LEITE EM PO DESNATADO IMPORTADO 25KG":{"custo":19.96,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"CD - LEITE EM PO INTEGRAL IMPORTADO 25KG":{"custo":22.59,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"CD - MANIMALTO - MALTODEXTRINA 25KG":{"custo":5.29,"comA":0.03,"comB":0.02,"margA":0.265,"margB":0.215},"CD - PERMEADO LITORAL 25KG":{"custo":5.19,"comA":0.02,"comB":0.01,"margA":0.155,"margB":0.105},"CD - SORO DE LEITE EM PO 25KG":{"custo":8.19,"comA":0.02,"comB":0.01,"margA":0.125,"margB":0.075},"COMPOSTO LACTEO HORIZONTE COM MALTODEXTRINA 200G":{"custo":12.989158338,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"LEITE EM PO DESNATADO HORIZONTE 25KG":{"custo":20.670158338,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"LEITE EM PO INTEGRAL HORIZONTE 200g":{"custo":25.859158338,"comA":0.015,"comB":0.01,"margA":0.085,"margB":0.055},"LEITE EM PO INTEGRAL HORIZONTE 25KG":{"custo":23.300158338,"comA":0.015,"comB":0.01,"margA":0.115,"margB":0.065},"OKEY LAC ACAI 1 KG":{"custo":14.999158338,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"OKEY LAC CREAM 25KG":{"custo":16.540158338,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"OKEY LAC GOURMET 25KG":{"custo":11.820158338,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"OKEY LAC PANIFICACAO 1KG":{"custo":12.889158338,"comA":0.03,"comB":0.02,"margA":0.125,"margB":0.075},"OKEY LAC PRO 25KG":{"custo":16.540158338,"comA":0.03,"comB":0.02,"margA":0.155,"margB":0.105},"PERMEADO LITORAL 25KG":{"custo":5.900158338,"comA":0.02,"comB":0.01,"margA":0.155,"margB":0.105},"SORO DE LEITE EM PO HORIZONTE 25KG":{"custo":8.900158338,"comA":0.02,"comB":0.01,"margA":0.125,"margB":0.075}};
 
-// Taxa FIDC por prazo de pagamento
 const PRAZOS = {"À vista":0.0,"7":0.009,"7/14":0.0125,"14":0.016,"7/14/21":0.016,"15":0.017,"15/30":0.0245,"21":0.023,"14/21":0.0195,"14/21/28":0.023,"21/28":0.0265,"21/28/35":0.03,"28":0.03,"15/30/45":0.032,"28/35":0.0335,"21/28/35/42":0.0335,"30":0.032,"30/35":0.0345,"28/35/42":0.037,"30/35/42":0.0377,"35":0.037,"21/28/35/42/49":0.037,"30/45":0.0395,"35/42":0.0405,"42":0.044,"21/28/35/42/49/56":0.0405,"45":0.047,"30/60":0.047,"28/35/42/49":0.0405,"35/42/49":0.044,"49":0.051,"42/49/56":0.051,"56":0.058,"45/60":0.0545,"60":0.062,"21/28/35/42/49/56/63":0.044};
 
-// Opcoes de frete: FOB (0) ou CIF com valor especifico
 const FRETES = [{"key":"FOB","label":"FOB","valor":0.0},{"key":"0.20","label":"CIF – R$ 0,20","valor":0.2},{"key":"0.25","label":"CIF – R$ 0,25","valor":0.25},{"key":"0.30","label":"CIF – R$ 0,30","valor":0.3},{"key":"0.35","label":"CIF – R$ 0,35","valor":0.35},{"key":"0.40","label":"CIF – R$ 0,40","valor":0.4},{"key":"0.45","label":"CIF – R$ 0,45","valor":0.45},{"key":"0.50","label":"CIF – R$ 0,50","valor":0.5},{"key":"0.55","label":"CIF – R$ 0,55","valor":0.55},{"key":"0.60","label":"CIF – R$ 0,60","valor":0.6},{"key":"0.65","label":"CIF – R$ 0,65","valor":0.65},{"key":"0.70","label":"CIF – R$ 0,70","valor":0.7},{"key":"0.75","label":"CIF – R$ 0,75","valor":0.75},{"key":"0.80","label":"CIF – R$ 0,80","valor":0.8},{"key":"0.85","label":"CIF – R$ 0,85","valor":0.85},{"key":"0.90","label":"CIF – R$ 0,90","valor":0.9},{"key":"0.95","label":"CIF – R$ 0,95","valor":0.95},{"key":"1.00","label":"CIF – R$ 1,00","valor":1.0},{"key":"1.05","label":"CIF – R$ 1,05","valor":1.05},{"key":"1.10","label":"CIF – R$ 1,10","valor":1.1},{"key":"1.15","label":"CIF – R$ 1,15","valor":1.15},{"key":"1.20","label":"CIF – R$ 1,20","valor":1.2},{"key":"1.25","label":"CIF – R$ 1,25","valor":1.25},{"key":"1.30","label":"CIF – R$ 1,30","valor":1.3},{"key":"1.35","label":"CIF – R$ 1,35","valor":1.35},{"key":"1.40","label":"CIF – R$ 1,40","valor":1.4},{"key":"1.45","label":"CIF – R$ 1,45","valor":1.45},{"key":"1.50","label":"CIF – R$ 1,50","valor":1.5},{"key":"1.55","label":"CIF – R$ 1,55","valor":1.55},{"key":"1.60","label":"CIF – R$ 1,60","valor":1.6},{"key":"1.65","label":"CIF – R$ 1,65","valor":1.65},{"key":"1.70","label":"CIF – R$ 1,70","valor":1.7},{"key":"1.75","label":"CIF – R$ 1,75","valor":1.75},{"key":"1.80","label":"CIF – R$ 1,80","valor":1.8},{"key":"1.85","label":"CIF – R$ 1,85","valor":1.85},{"key":"1.90","label":"CIF – R$ 1,90","valor":1.9},{"key":"1.95","label":"CIF – R$ 1,95","valor":1.95},{"key":"2.00","label":"CIF – R$ 2,00","valor":2.0},{"key":"2.05","label":"CIF – R$ 2,05","valor":2.05},{"key":"2.10","label":"CIF – R$ 2,10","valor":2.1},{"key":"2.15","label":"CIF – R$ 2,15","valor":2.15},{"key":"2.20","label":"CIF – R$ 2,20","valor":2.2},{"key":"2.25","label":"CIF – R$ 2,25","valor":2.25},{"key":"2.30","label":"CIF – R$ 2,30","valor":2.3},{"key":"2.35","label":"CIF – R$ 2,35","valor":2.35},{"key":"2.40","label":"CIF – R$ 2,40","valor":2.4},{"key":"2.45","label":"CIF – R$ 2,45","valor":2.45},{"key":"2.50","label":"CIF – R$ 2,50","valor":2.5},{"key":"2.55","label":"CIF – R$ 2,55","valor":2.55},{"key":"2.60","label":"CIF – R$ 2,60","valor":2.6},{"key":"2.65","label":"CIF – R$ 2,65","valor":2.65},{"key":"2.70","label":"CIF – R$ 2,70","valor":2.7},{"key":"2.75","label":"CIF – R$ 2,75","valor":2.75},{"key":"2.80","label":"CIF – R$ 2,80","valor":2.8},{"key":"2.85","label":"CIF – R$ 2,85","valor":2.85},{"key":"2.90","label":"CIF – R$ 2,90","valor":2.9},{"key":"2.95","label":"CIF – R$ 2,95","valor":2.95},{"key":"3.00","label":"CIF – R$ 3,00","valor":3.0}];
 
 function entrar(){
